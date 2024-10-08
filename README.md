@@ -6,7 +6,6 @@ This application is a REST API for task management with the ability to log compl
     CRUD operations for tasks (TaskItem) and completed task records (TaskRecord).
     User authentication using JWT tokens.
     Authorization to ensure that users can only manage their own completed task records.
-    Task analytics, including a daily summary of completed tasks and time spent on them.
 
 Technologies and Libraries
 
@@ -65,11 +64,7 @@ Endpoints for working with completed task records:
     PUT /api/task_record/{id} — update a record.
     DELETE /api/task_record/{id} — delete a record.
 
-3. Analytics
-
-    GET /api/summary/daily — daily summary of completed tasks for the current day (with filter by date).
-
-4. Authentication and Authorization
+3. Authentication and Authorization
 
     JWT authentication is implemented using tokens.
     Users can only manage their own completed task records (permissions are enforced).
