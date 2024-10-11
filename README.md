@@ -1,22 +1,29 @@
-Task Management API
-Description
+#   Task Management API
+### Description
 
 This application is a REST API for task management with the ability to log completed tasks. The API is developed using FastAPI and includes the following features:
 
-    CRUD operations for tasks (TaskItem) and completed task records (TaskRecord).
-    User authentication using JWT tokens.
-    Authorization to ensure that users can only manage their own completed task records.
+CRUD operations for tasks (TaskItem) and completed task records (TaskRecord).
 
-Technologies and Libraries
+User authentication using JWT tokens.
 
-    FastAPI — A high-performance web framework for building APIs with Python.
-    SQLAlchemy — A library for working with databases, used here to define data models.
-    Pydantic — A library for data validation and serialization.
-    JWT — A technology for authentication and authorization using tokens.
-    PostgreSQL/MySQL/SQLite — The database used can be any of these.
+Authorization to ensure that users can only manage their own completed task records.
+    
+### Technologies and Libraries
 
-Main Entities and Their Purpose
-TaskItem (Task)
+***FastAPI*** — A high-performance web framework for building APIs with Python.
+
+***SQLAlchemy*** — A library for working with databases, used here to define data models.
+
+***Pydantic*** — A library for data validation and serialization.
+
+***JWT*** — A technology for authentication and authorization using tokens.
+
+***PostgreSQL/MySQL/SQLite*** — The database used can be any of these.
+
+
+### Main Entities and Their Purpose
+#### TaskItem (Task)
 
 This is the primary entity representing a task that needs to be completed. The task model includes:
 
@@ -25,7 +32,7 @@ This is the primary entity representing a task that needs to be completed. The t
     priority (priority: low, medium, high)
     due_date (deadline)
 
-TaskRecord (Completed Task Record)
+#### TaskRecord (Completed Task Record)
 
 This entity represents a record of a completed task. The model includes:
 
@@ -34,7 +41,7 @@ This entity represents a record of a completed task. The model includes:
     completion_date (date when the task was completed)
     time_spent (time spent on the task in minutes)
 
-User
+#### User
 
 This entity represents a user in the system. It includes:
 
@@ -69,7 +76,7 @@ Endpoints for working with completed task records:
     JWT authentication is implemented using tokens.
     Users can only manage their own completed task records (permissions are enforced).
 
-Project Structure
+### Project Structure
 
     src/api/models.py — contains data models (User, TaskItem, TaskRecord) defined using SQLAlchemy.
     src/api/schemas.py — contains Pydantic schemas for data validation and serialization.
@@ -77,16 +84,13 @@ Project Structure
     src/api/task_record.py — implementation of CRUD operations for TaskRecord.
     src/main.py — entry point of the application where routes (endpoints) are registered and the application is configured.
 
-Installation and Setup
-Requirements
+### Installation and Setup
 
 To run the project, ensure you have:
 
     Python 3.8 or higher
     PostgreSQL or any supported database (SQLite, MySQL)
     pip (Python package manager)
-
-Installation
 
 Clone the repository:
 
@@ -107,6 +111,6 @@ Start the development server using Uvicorn:
 
     uvicorn src.main:app --reload
 
-Conclusion
+### Conclusion
 
 This API is designed for task management and monitoring task completion. It implements a modern security approach using JWT tokens and supports flexible data operations through a REST API. The built-in analytics features allow users to track their progress and time spent on tasks.
