@@ -1,5 +1,4 @@
 from pydantic import BaseModel
-from abc import ABC, abstractmethod
 from datetime import datetime
 from src.item.models import PriorityLevel
 
