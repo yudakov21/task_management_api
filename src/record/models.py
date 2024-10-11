@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, Integer, String, Text, DateTime, ForeignKey, TIMESTAMP, Boolean , Enum as SQLAEnum, MetaData
+from sqlalchemy import Table, Column, Integer, DateTime, ForeignKey, MetaData
 from src.item.models import task_item
 from src.auth.models import user
 

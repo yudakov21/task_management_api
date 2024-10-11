@@ -1,11 +1,11 @@
 from fastapi import FastAPI
-from src.auth.models import User
-from src.item.task_item import router as item_router
-from src.record.task_record import router as record_router
 from fastapi_users import fastapi_users, FastAPIUsers
+from src.auth.models import User
 from src.auth.base_config import auth_backend
 from src.auth.schemas import UserRead, UserCreate
 from src.auth.manager import get_user_manager
+from src.item.task_item import router as item_router
+from src.record.task_record import router as record_router
 
 app = FastAPI(
     title='Tracker'

@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, Integer, String, Text, DateTime, ForeignKey, TIMESTAMP, Boolean , Enum as SQLAEnum, MetaData
+from sqlalchemy import Table, Column, Integer, String, Text, DateTime, Enum as SQLAEnum, MetaData
 import enum 
 
 metadata = MetaData()

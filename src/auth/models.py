@@ -1,4 +1,4 @@
-from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, Boolean , Enum as SQLAEnum, MetaData
+from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, Boolean, MetaData
 from fastapi_users.db import SQLAlchemyBaseUserTable
 from datetime import datetime
 from src.database import Base

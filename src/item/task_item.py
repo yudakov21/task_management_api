@@ -1,11 +1,10 @@
+import logging
 from fastapi import APIRouter, Depends, HTTPException
 from src.item.schemas import TaskItemCreate, TaskItemRead
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, insert, update, delete
 from src.database import get_async_session
 from src.item.models import task_item
-from typing import List
-import logging
 
 logger = logging.getLogger(__name__)
 

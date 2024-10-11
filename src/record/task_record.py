@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
-from src.record.schemas import TaskRecordCreate
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, insert, update, delete
 from src.database import get_async_session
 from src.record.models import task_record
+from src.record.schemas import TaskRecordCreate
 
 router = APIRouter(
     prefix='/task_record', tags = ['TaskRecord']
