@@ -56,7 +56,6 @@ API Endpoints
 Endpoints for working with tasks:
 
     POST /api/task/ — create a task.
-    GET /api/task/ — retrieve a list of all tasks.
     GET /api/task/{id} — retrieve a single task by its ID.
     PUT /api/task/{id} — update a task.
     DELETE /api/task/{id} — delete a task.
@@ -66,7 +65,6 @@ Endpoints for working with tasks:
 Endpoints for working with completed task records:
 
     POST /api/task_record/ — create a completed task record.
-    GET /api/task_record/ — retrieve a list of all records.
     GET /api/task_record/{id} — retrieve a single record by its ID.
     PUT /api/task_record/{id} — update a record.
     DELETE /api/task_record/{id} — delete a record.
