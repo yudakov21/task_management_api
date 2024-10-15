@@ -50,7 +50,7 @@ This entity represents a user in the system. It includes:
     hashed_password (hashed password for secure storage)
     is_active, is_superuser, is_verified (flags for user status)
 
-API Endpoints
+### API Endpoints
 1. TaskItem CRUD
 
 Endpoints for working with tasks:
