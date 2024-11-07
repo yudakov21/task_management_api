@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="text-3xl font-bold mb-6">Add a new task</h1>
+    <form id="taskForm" class="bg-white p-6 rounded-lg shadow-lg">
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="title">Name</label>
+            <input type="text" id="title" name="title" class="w-full px-3 py-2 border rounded-lg" required>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description</label>
+            <textarea id="description" name="description" class="w-full px-3 py-2 border rounded-lg" required></textarea>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="priority">Priority</label>
+            <select id="priority" name="priority" class="w-full px-3 py-2 border rounded-lg">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="due_date">Completion date</label>
+            <input type="date" id="due_date" name="due_date" class="w-full px-3 py-2 border rounded-lg">
+        </div>
+        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Add</button>
+        <a href="/pages/task_list" class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800">
+            Cancel
+        </a>
+    </form>
+
+    <script>
+        document.getElementById("taskForm").addEventListener("submit", async function(event) {
+            event.preventDefault(); 
+            
+            const formData = {
+                title: document.getElementById("title").value,
+                description: document.getElementById("description").value,
+                priority: document.getElementById("priority").value,
+                due_date: document.getElementById("due_date").value 
+            };
+
+            try {
+                const response = await fetch("/task_item/api/user_task/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(formData),
+                });
+
+                if (response.ok) {
+                    alert("Задача успешно добавлена!");
+                    window.location.href = "/pages/task_list"; 
+                } else {
+                    const errorData = await response.json();
+                    alert("Ошибка: " + errorData.detail);
+                }
+            } catch (error) {
+                alert("Ошибка отправки: " + error);
+            }
+        });
+    </script>
+{% endblock %}
