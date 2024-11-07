@@ -71,14 +71,14 @@
                 });
 
                 if (response.ok) {
-                    alert("Задача успешно обновлена!");
+                    alert("The task has been successfully updated!");
                     window.location.href = "/pages/task_list";
                 } else {
                     const errorData = await response.json();
-                    alert("Ошибка при обновлении задачи: " + JSON.stringify(errorData));
+                    alert("Error when updating a task: " + JSON.stringify(errorData));
                 }
             } catch (error) {
-                alert("Ошибка отправки: " + error);
+                alert("Dispatch Error:" + error);
             }
         });
 
@@ -97,7 +97,7 @@
 
             const queryString = `?completion_date=${encodeURIComponent(completionDate)}&time_spent=${timeSpent}`;
 
-            console.log("Отправляемый JSON:", JSON.stringify(formData));
+            console.log("JSON:", JSON.stringify(formData));
 
             try {
                 const response = await fetch(`/task_item/api/user_taskrecord/{{ task['id'] }}${queryString}`, {
@@ -109,15 +109,15 @@
                 });
 
                 if (response.ok) {
-                    alert("Задача успешно обновлена!");
+                    alert("The task has been successfully updated!");
                     window.location.href = "/pages/task_list";
                 } else {
                     const errorData = await response.json();
-                    console.error("Ошибка данных:", errorData);
-                    alert("Ошибка: " + JSON.stringify(errorData, null, 2));
+                    console.error("Data error:", errorData);
+                    alert("Error: " + JSON.stringify(errorData, null, 2));
                 }
             } catch (error) {
-                alert("Ошибка отправки: " + error);
+                alert("Dispatch Error: " + error);
             }
         });
     </script>

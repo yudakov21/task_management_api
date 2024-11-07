@@ -50,14 +50,14 @@
                 });
 
                 if (response.ok) {
-                    alert("Задача успешно добавлена!");
+                    alert("The task has been successfully added!");
                     window.location.href = "/pages/task_list"; 
                 } else {
                     const errorData = await response.json();
-                    alert("Ошибка: " + errorData.detail);
+                    alert("Error: " + errorData.detail);
                 }
             } catch (error) {
-                alert("Ошибка отправки: " + error);
+                alert("Dispatch error: " + error);
             }
         });
     </script>
