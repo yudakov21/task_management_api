@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>App - Base</title>
+</head>
+<body class="bg-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Nav -->
+    <nav class="flex justify-between items-center py-4 bg-blue-500 text-white shadow-lg">
+        <div class="ml-10 text-2xl font-bold">
+            <a href="/pages/base" class="hover:text-blue-200">APP</a>
+        </div>
+        <ul class="flex gap-6 mr-10 items-center">
+            {% if user %}  
+                <li><a href="/pages/task_list" class="hover:text-blue-200">My tasks</a></li>
+                <li><button id="logoutButton" class="hover:text-blue-200 focus:outline-none">Logout</button></li>           
+            {% else %}
+                <li><a href="/pages/login" class="hover:text-blue-200">Login</a></li>
+                <li><a href="/pages/register" class="hover:text-blue-200">Register</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <div class="container mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg">
+        <div id="content" class="text-gray-800">
+            {% block content %}
+                <h1 class="text-3xl font-bold mb-4">Welcome to the task dashboard!</h1>
+                {% if user %}
+                    <p class="text-lg mb-2">You logged in as: <span class="font-semibold">{{ user.email }}</span></p>
+                    <p>Here you can manage your assignments.</p>
+                {% else %}
+                    <p class="text-lg">Please login or register to continue.</p>
+                {% endif %}
+            {% endblock %}
+        </div>
+    </div>   
+
+    <script>
+        document.getElementById("logoutButton").addEventListener("click", async function() {
+            const response = await fetch("/auth/jwt/logout", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
+
+            if (response.ok) {
+                window.location.href = "/pages/base"; 
+            } else {
+                alert("Logout error");
+            }
+        });
+    </script>
+</body>
+</html>
