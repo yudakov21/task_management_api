@@ -3,7 +3,6 @@ from datetime import datetime
 from src.item.models import PriorityLevel
 
 class TaskItemCreate(BaseModel):
-    id: int
     title: str
     description: str
     priority: PriorityLevel
