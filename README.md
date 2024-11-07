@@ -51,25 +51,17 @@ This entity represents a user in the system. It includes:
     is_active, is_superuser, is_verified (flags for user status)
 
 ### API Endpoints
-1. TaskItem CRUD
+1. TaskRecordItem CRUD
 
 Endpoints for working with tasks:
 
-    POST /api/task/ — create a task.
-    GET /api/task/{id} — retrieve a single task by its ID.
-    PUT /api/task/{id} — update a task.
-    DELETE /api/task/{id} — delete a task.
+    POST /api/user_task/ — create a task.
+    GET /api/user_tasks/ — retrieve tasks.
+    PUT /api/user_task/{id} — update a task.
+    PUT /api/user_taskrecord/{id} — update a task with record.
+    DELETE /api/user_task/{id} — delete a task.
 
-2. TaskRecord CRUD
-
-Endpoints for working with completed task records:
-
-    POST /api/task_record/ — create a completed task record.
-    GET /api/task_record/{id} — retrieve a single record by its ID.
-    PUT /api/task_record/{id} — update a record.
-    DELETE /api/task_record/{id} — delete a record.
-
-3. Authentication and Authorization
+2. Authentication and Authorization
 
     JWT authentication is implemented using tokens.
     Users can only manage their own completed task records (permissions are enforced).
@@ -78,8 +70,7 @@ Endpoints for working with completed task records:
 
     src/api/models.py — contains data models (User, TaskItem, TaskRecord) defined using SQLAlchemy.
     src/api/schemas.py — contains Pydantic schemas for data validation and serialization.
-    src/api/task_item.py — implementation of CRUD operations for TaskItem.
-    src/api/task_record.py — implementation of CRUD operations for TaskRecord.
+    src/api/task_item.py — implementation of CRUD operations for TaskRecordItem.
     src/main.py — entry point of the application where routes (endpoints) are registered and the application is configured.
 
 ### Installation and Setup
